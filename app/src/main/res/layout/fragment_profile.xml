@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/round_button"
+    tools:context=".Fragment.ProfileFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:elevation="10dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="About"
+            android:drawableLeft="@drawable/baseline_info_24"
+            android:textColor="@color/foreground"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Sign out"
+            android:drawableLeft="@drawable/baseline_logout_24"
+
+            android:textColor="@color/foreground"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+</RelativeLayout>

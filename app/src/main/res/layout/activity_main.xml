@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/purpule_lightest"
+    tools:context=".MainActivity">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/linearLayout"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Hi, Harsimran"
+                android:textColor="@color/foreground"
+                android:maxLength="18"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvName"
+                android:layout_marginTop="-5dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Welcome to the Chat App"
+                android:textColor="@color/foreground"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/buttonProfile"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/white"
+        android:elevation="20dp"
+        android:foregroundTint="@color/white"
+        android:src="@drawable/ic_baseline_person_24"
+        android:text="Predict" />
+    <LinearLayout
+        android:layout_below="@id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_button"
+            android:elevation="20dp"
+            app:tabGravity="fill"
+            app:tabIndicator="@color/purple_dark"
+            app:tabIndicatorColor="@color/purple_dark"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/purple_dark"
+            app:tabTextColor="@color/foreground"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewPager"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

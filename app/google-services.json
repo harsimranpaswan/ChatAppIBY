@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "706974844151",
+    "firebase_url": "https://chatapp-gamma-default-rtdb.firebaseio.com",
+    "project_id": "chatapp-gamma",
+    "storage_bucket": "chatapp-gamma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706974844151:android:31c7e91d72236071b8fff2",
+        "android_client_info": {
+          "package_name": "com.workshop.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706974844151-btv5pdmuo501p25oc3qd7jlvi67r7l5f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.workshop.chatapp",
+            "certificate_hash": "d3f36501f1fef6e9e8e0c28761136e714a133615"
+          }
+        },
+        {
+          "client_id": "706974844151-6pj8quua0gc7u85grgfjo3mc74bnai6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-H3t7bCH9nr-PbRGzxn77APpGoZWdyxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706974844151-6pj8quua0gc7u85grgfjo3mc74bnai6m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
