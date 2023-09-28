@@ -75,6 +75,7 @@ class ChatViewActivity : AppCompatActivity() {
                         model?.messageId = dataSnapshot.key
                         messages.add(model!!)
                         chatAdapter.notifyDataSetChanged()
+                        binding.chatsRecyclerView.smoothScrollToPosition(chatAdapter.itemCount)
                     }
                 }
 
