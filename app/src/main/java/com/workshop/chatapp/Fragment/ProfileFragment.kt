@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.workshop.chatapp.AboutActivity
 import com.workshop.chatapp.LoginActivity
 import com.workshop.chatapp.databinding.FragmentProfileBinding
 
@@ -32,6 +33,11 @@ class ProfileFragment : BottomSheetDialogFragment() {
             intent.flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+        binding.tvAbout.setOnClickListener {
+            val intent = Intent(context, AboutActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
+
     }
 }

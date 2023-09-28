@@ -67,6 +67,7 @@ class RegisterActivity : AppCompatActivity() {
         //lower TextView buttons
         binding.tvback.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
         binding.tvSignin.setOnClickListener {

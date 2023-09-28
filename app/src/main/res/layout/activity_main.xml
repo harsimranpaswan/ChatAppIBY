@@ -50,8 +50,7 @@
         android:backgroundTint="@color/white"
         android:elevation="20dp"
         android:foregroundTint="@color/white"
-        android:src="@drawable/ic_baseline_person_24"
-        android:text="Predict" />
+        android:src="@drawable/baseline_settings_24" />
     <LinearLayout
         android:layout_below="@id/linearLayout"
         android:layout_width="match_parent"

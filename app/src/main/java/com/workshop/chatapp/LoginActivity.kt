@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -42,6 +43,9 @@ class LoginActivity : AppCompatActivity() {
         googleSignInClient= GoogleSignIn.getClient(this,gso)
 
 
+        binding.buttonProgress.isVisible=false
+        binding.buttonProgress2.isVisible=false
+
         binding.buttonSignin.setOnClickListener {
             signIn()
         }
@@ -61,20 +65,35 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signIn() {
+        binding.buttonSignin.isClickable=false
+        binding.buttonSignin.isVisible=false
+        binding.buttonProgress2.isVisible=true
+
         if (!binding.etMail.text.toString().isEmpty() && !binding.etPassword.text.toString().isEmpty()) {
             firebaseAuth.signInWithEmailAndPassword(binding.etMail.text.toString(), binding.etPassword.text.toString())
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
+                        binding.buttonSignin.isClickable=true
+                        binding.buttonSignin.isVisible=true
+                        binding.buttonProgress2.isVisible=false
+
                         val intent = Intent(this, MainActivity::class.java)
                         intent.flags= Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)
                         finish()
                     } else {
+                        binding.buttonSignin.isClickable=true
+                        binding.buttonSignin.isVisible=true
+                        binding.buttonProgress2.isVisible=false
+
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
                     }
                 }
         } else {
+            binding.buttonSignin.isClickable=true
+            binding.buttonSignin.isVisible=true
+            binding.buttonProgress2.isVisible=false
             Toast.makeText(this, "Invalid Credentials", Toast.LENGTH_SHORT).show()
         }
     }
@@ -82,6 +101,9 @@ class LoginActivity : AppCompatActivity() {
     fun signInGoogle(){
         val signInIntent=googleSignInClient.signInIntent
         launcher.launch(signInIntent)
+        binding.buttonGoogle.isClickable=false
+        binding.buttonGoogle.isVisible=false
+        binding.buttonProgress.isVisible=true
     }
 
     private val launcher= registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
@@ -105,7 +127,9 @@ class LoginActivity : AppCompatActivity() {
                         users.profilePic=firebaseAuth.currentUser?.photoUrl.toString()
                         firebaseDatabase.getReference().child("Users").child(id.toString()).setValue(users)
 
-
+                        binding.buttonGoogle.isClickable=true
+                        binding.buttonGoogle.isVisible=true
+                        binding.buttonProgress.isVisible=false
 
                         val intent = Intent(this, MainActivity::class.java)
                         intent.putExtra("name", account.givenName)
@@ -114,6 +138,9 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(intent)
                         finish()
                     } else {
+                        binding.buttonGoogle.isClickable=true
+                        binding.buttonGoogle.isVisible=true
+                        binding.buttonProgress.isVisible=false
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -122,6 +149,9 @@ class LoginActivity : AppCompatActivity() {
         }
         else{
             Toast.makeText(this,task.exception.toString(),Toast.LENGTH_SHORT).show()
+            binding.buttonGoogle.isClickable=true
+            binding.buttonGoogle.isVisible=true
+            binding.buttonProgress.isVisible=false
         }
     }
 

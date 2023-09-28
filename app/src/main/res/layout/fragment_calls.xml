@@ -1,15 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.CallsFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:id="@+id/callsRecyclerView"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lin"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose your Secret Name"
+            android:textSize="30sp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/text"
+            android:layout_margin="15dp"
+            android:textColor="@color/foreground"
+            android:layout_weight="3"
+            android:fontFamily="@font/quicksand_bold"
+            android:textAllCaps="true" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_weight="1"
+            android:layout_margin="15dp"
+            android:cropToPadding="true"
+            android:layout_height="match_parent"
+            android:src="@drawable/call_icon"/>
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@id/lin"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:id="@+id/userId"
+        android:background="@drawable/round_button"
+        android:elevation="20dp"
+        android:textSize="20sp"
+        android:hint="Enter your secret name"
+        android:padding="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userId"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/buttonCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/round_button"
+            android:elevation="10dp"
+            android:text="ENTER THE CHAT ROOM" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+</ScrollView>

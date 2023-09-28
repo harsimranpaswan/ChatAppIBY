@@ -93,11 +93,13 @@
                         android:textColor="@color/foreground" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
                 <Button
                     android:id="@+id/buttonSignin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/passwordLayout"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
@@ -105,6 +107,20 @@
                     android:background="@drawable/round_button"
                     android:elevation="10dp"
                     android:text="SIGN IN" />
+
+                <ProgressBar
+                    android:id="@+id/buttonProgress2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="25dp"
+                    android:backgroundTint="@color/purple"
+                    android:background="@drawable/round_button"
+                    android:elevation="10dp"
+                    android:text="SIGN IN" />
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,6 +164,19 @@
         android:layout_marginBottom="25dp"
         android:background="@drawable/round_button"
         android:elevation="10dp"
-        android:text="SIGN IN WITH GOOGLE" />
+        android:text="SIGN IN WITH GOOGLE"/>
+    <ProgressBar
+        android:id="@+id/buttonProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardLayout"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/round_button"
+        android:backgroundTint="@color/purple"
+        android:elevation="20dp"
+        android:text="SIGN IN WITH GOOGLE"/>
 
 </RelativeLayout>

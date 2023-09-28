@@ -1,60 +1,72 @@
-   package com.workshop.chatapp.Fragment
+package com.workshop.chatapp.Fragment
 
+import android.app.Application
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.workshop.chatapp.R
+import androidx.fragment.app.Fragment
+import com.workshop.chatapp.VideoCallActivity
+import com.workshop.chatapp.databinding.FragmentCallsBinding
+import com.zegocloud.uikit.prebuilt.call.config.ZegoNotificationConfig
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CallsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CallsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var binding: FragmentCallsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calls, container, false)
+        binding = FragmentCallsBinding.inflate(inflater, container, false)
+
+        binding.buttonCall.setOnClickListener {
+            if (binding.userId.text.toString().isNotEmpty()) {
+                val userId = binding.userId.text.toString()
+                startService(userId, userId)
+                val intent = Intent(context, VideoCallActivity::class.java)
+                intent.putExtra("userId", userId)
+                startActivity(intent)
+            }
+        }
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CallsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CallsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun startService(userId: String, userN: String) {
+        val application: Application = requireActivity().application
+        val appID: Long = 1345181145
+        val appSign: String = "4419ca5af910c8fa1173dfac93aff5e4cc40234a7ca4cf34c08e3e50439992c3"
+        val userID: String = userId
+        val userName: String = userN
+
+        val callInvitationConfig = ZegoUIKitPrebuiltCallInvitationConfig()
+        callInvitationConfig.notifyWhenAppRunningInBackgroundOrQuit = true
+
+        val notificationConfig = ZegoNotificationConfig()
+        notificationConfig.sound = "zego_uikit_sound_call"
+        notificationConfig.channelID = "CallInvitation"
+        notificationConfig.channelName = "CallInvitation"
+
+        ZegoUIKitPrebuiltCallInvitationService.init(
+            application,
+            appID,
+            appSign,
+            userID,
+            userName,
+            callInvitationConfig
+        )
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ZegoUIKitPrebuiltCallInvitationService.unInit()
+    }
+
 }
