@@ -7,7 +7,7 @@ This is an android app developed using JAVA/Kotlin which can be used to send and
 The app is also Protected using Firebase Authentication.
 
 <H3>Android Package File(APK)</H3>
-https://drive.google.com/file/d/1JXZniqLIQvvUiNk0gPsIR2bgoVWuX21R/view?usp=sharing
+https://drive.google.com/file/d/1JXZniqLIQvvUiNk0gPsIR2bgoVWuX21R/view?usp=sharing <br>
 (please allow the required permissions for the app to function properly)
 
 <H3>Please refer to the documentation for detailed explanation</H3>
