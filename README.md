@@ -1,7 +1,4 @@
-# ChatAppIBY
-<H4>Name: Harsimran</H4>
-<H4>University: IIT Dhanbad</H4>
-<H4>Department: ECE</H4>
+# ChatApp
 
 This is an android app developed using JAVA/Kotlin which can be used to send and recieve messages along with Voice and Video Calling Feature.
 The app is also Protected using Firebase Authentication.
